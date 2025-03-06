@@ -10,7 +10,6 @@ export default function Footer() {
         <p className="text-sm flex items-center gap-1 animate-pulse"> <span className="w-2 h-2 bg-green-400 rounded-full animate-ping"></span></p>
       </div>
       <div className="flex items-center gap-4">
-        <p className="text-sm flex items-center gap-1">Powered by <SiBuymeacoffee /> & <IoHeart /></p>
         <p className="text-sm">© {new Date().getFullYear()} <a href="https://dimuthnilanjana.com" className="text-blue-400 hover:underline">Dimuth Nilanjana</a>. All rights reserved.</p>
       </div>
     </footer>
