@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-glassmorphic {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bg-mesh {
+  background: radial-gradient(circle at 50% 50%, rgba(50, 50, 180, 0.1) 0%, rgba(255, 255, 255, 0) 50%),
+              radial-gradient(circle at 100% 0%, rgba(120, 80, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%),
+              radial-gradient(circle at 0% 100%, rgba(80, 200, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
+  background-color: #0a0a1f;
+}
