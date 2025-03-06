@@ -8,6 +8,7 @@ function App() {
   const [color, setColor] = useState('#ffffff');
   const [logo, setLogo] = useState<string | null>(null);
   const [useCustomLogo, setUseCustomLogo] = useState(false);
+  const [logoSize, setLogoSize] = useState(48);
   const qrRef = useRef<HTMLDivElement>(null);
 
   const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,8 +27,8 @@ function App() {
 
     try {
       const dataUrl = format === 'png' 
-        ? await toPng(qrRef.current, { quality: 1.0 })
-        : await toSvg(qrRef.current);
+        ? await toPng(qrRef.current, { quality: 1.0, backgroundColor: null })
+        : await toSvg(qrRef.current, { backgroundColor: null });
       
       const link = document.createElement('a');
       link.download = `qrcode.${format}`;
@@ -85,7 +86,7 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-gray-300">Custom Logo</label>
+              <label className="block text-sm font-medium text-gray-300">Logo Options</label>
               <div className="flex items-center gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
@@ -107,7 +108,7 @@ function App() {
                 </label>
               </div>
               {useCustomLogo && (
-                <div className="mt-2">
+                <div className="space-y-4">
                   <label className="flex items-center justify-center w-full h-32 px-4 transition input-glassmorphic rounded-xl cursor-pointer hover:border-purple-500/50 focus:outline-none border-2 border-purple-500/30">
                     <div className="flex flex-col items-center space-y-2">
                       <Upload className="w-6 h-6 text-purple-400" />
@@ -120,6 +121,22 @@ function App() {
                       onChange={handleLogoUpload}
                     />
                   </label>
+                  
+                  {logo && (
+                    <div className="space-y-4 p-4 input-glassmorphic rounded-xl">
+                      <div className="space-y-2">
+                        <label className="block text-sm font-medium text-gray-300">Logo Size</label>
+                        <input
+                          type="range"
+                          min="20"
+                          max="150"
+                          value={logoSize}
+                          onChange={(e) => setLogoSize(Number(e.target.value))}
+                          className="w-full"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -156,8 +173,8 @@ function App() {
                         src: logo,
                         x: undefined,
                         y: undefined,
-                        height: 48,
-                        width: 48,
+                        height: logoSize,
+                        width: logoSize,
                         excavate: true,
                       }
                     : undefined
