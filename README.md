@@ -30,10 +30,9 @@ A feature-rich, responsive QR Code Generator built with **Next.js, Tailwind CSS,
 
   2. **Clone the repository**
        ```sh
-    npm install
+       npm install
  3. **Run the development server**
      ```sh
-    npm run dev
-     
+     npm run dev 
 
   
