@@ -1,6 +1,4 @@
 import { FaGithub } from "react-icons/fa";
-import { SiBuymeacoffee } from "react-icons/si";
-import { IoHeart } from "react-icons/io5";
 
 export default function Footer() {
   return (
